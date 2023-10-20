@@ -18,3 +18,8 @@ if [ -f "${NVM_DIR}/bash_completion" ]; then
   . "${NVM_DIR}/bash_completion"
 fi
 
+# setup prompt
+if command -v starship >/dev/null; then
+  eval "$(starship init bash)"
+fi
+
