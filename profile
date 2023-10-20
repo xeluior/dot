@@ -62,6 +62,7 @@ export PATH
 
 # aliases
 alias ls='ls -lhAF --color=auto'
+alias mkdir='mkdir -p'
 alias irssi='irssi --config="${XDG_CONFIG_HOME}/irssi/config" --home="${XDG_DATA_HOME}/irssi"'
 alias sqlite3='sqlite3 -init "${XDG_CONFIG_HOME}/sqlite3/sqliterc"'
 alias wget='wget --hsts-file="${XDG_STATE_HOME}/wget-hsts"'
@@ -69,11 +70,11 @@ alias wget='wget --hsts-file="${XDG_STATE_HOME}/wget-hsts"'
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # define EDITOR in decreasing order of preference
-if command -v lvim; then
+if command -v lvim >/dev/null; then
   EDITOR="lvim"
-elif command -v nvim; then
+elif command -v nvim >/dev/null; then
   EDITOR="nvim"
-elif command -v vim; then
+elif command -v vim >/dev/null; then
   EDITOR="vim"
 else
   EDITOR="vi"
