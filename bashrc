@@ -9,7 +9,7 @@ fi
 
 # custom completions
 if [ -d "${XDG_DATA_HOME}/bash-completion/completions" ]; then
-  for completion in "${XDG_DATA_HOME}/bash-completion/completions/*"; do
+  for completion in ${XDG_DATA_HOME}/bash-completion/completions/*; do
     . "${completion}"
   done
 fi

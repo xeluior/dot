@@ -3,18 +3,6 @@ export QT_STYLE_OVERRIDE=kvantum
 # for i3 compatibility
 export TERMINAL="alacritty"
 
-# define EDITOR in decreasing order of preference
-if command -v lvim; then
-  EDITOR="lvim"
-elseif command -v nvim; then
-  EDITOR="nvim"
-elseif command -v vim; then
-  EDITOR="vim"
-else
-  EDITOR="vi"
-fi
-export EDITOR
-
 # oh man all these vars for xdg compatibility
 export XDG_DATA_HOME="${HOME}/.local/share"
 export GNUPGHOME="${XDG_DATA_HOME}/gnupg"
@@ -49,25 +37,27 @@ export WGETRC="${XDG_CONFIG_HOME}/wgetrc"
 
 export GHCUP_USE_XDG_DIRS=true
 
-if [ -d "${CARGO_HOME}/bin" ];
 # ensure PATH has all extensions
+if [ -d "${CARGO_HOME}/bin" ]; then
   case ":${PATH}:" in
-    *:${CARGO_HOME}/bin:*) PATH="${CARGO_HOME}/bin:${PATH}";;
+    *:${CARGO_HOME}/bin:*) ;;
+    *) PATH="${CARGO_HOME}/bin:${PATH}";;
   esac
 fi
 
 if [ -d "${GOPATH}/bin" ]; then
   case ":${PATH}:" in
-    *:${GOPATH}/bin:*) PATH="${GOPATH}/bin:${PATH}";;
+    *:${GOPATH}/bin:*) ;;
+    *) PATH="${GOPATH}/bin:${PATH}";;
   esac
 fi
 
 if [ -d "${HOME}/.local/bin" ]; then
   case ":${PATH}:" in
-    *:${HOME}/.local/bin:*) PATH="${HOME}/.local/bin";;
+    *:${HOME}/.local/bin:*) ;;
+    *) PATH="${HOME}/.local/bin:${PATH}";;
   esac
 fi
-
 export PATH
 
 # aliases
@@ -77,4 +67,16 @@ alias sqlite3='sqlite3 -init "${XDG_CONFIG_HOME}/sqlite3/sqliterc"'
 alias wget='wget --hsts-file="${XDG_STATE_HOME}/wget-hsts"'
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# define EDITOR in decreasing order of preference
+if command -v lvim; then
+  EDITOR="lvim"
+elif command -v nvim; then
+  EDITOR="nvim"
+elif command -v vim; then
+  EDITOR="vim"
+else
+  EDITOR="vi"
+fi
+export EDITOR
 
