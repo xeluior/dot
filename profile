@@ -66,6 +66,7 @@ alias mkdir='mkdir -p'
 alias irssi='irssi --config="${XDG_CONFIG_HOME}/irssi/config" --home="${XDG_DATA_HOME}/irssi"'
 alias sqlite3='sqlite3 -init "${XDG_CONFIG_HOME}/sqlite3/sqliterc"'
 alias wget='wget --hsts-file="${XDG_STATE_HOME}/wget-hsts"'
+alias lzg='lazygit'
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
