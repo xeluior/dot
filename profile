@@ -11,6 +11,7 @@ export CARGO_HOME="${XDG_DATA_HOME}/cargo"
 export GRADLE_USER_HOME="${XDG_DATA_HOME}/gradle"
 export GOPATH="${XDG_DATA_HOME}/go"
 export PYTHONUSERBASE="${XDG_DATA_HOME}/python"
+export PYENV_ROOT="${XDG_DATA_HOME}/pyenv"
 
 export XDG_CACHE_HOME="${HOME}/.cache"
 export ICEAUTHORITY="${XDG_CACHE_HOME}/ICEauthority"
@@ -58,6 +59,13 @@ if [ -d "${HOME}/.local/bin" ]; then
     *) PATH="${HOME}/.local/bin:${PATH}";;
   esac
 fi
+
+if [ -d "${PYENV_ROOT}/bin" ]; then
+  case ":${PATH}:" in
+    *:${PYENV_ROOT/bin}:*) ;;
+    *) PATH="${PYENV_ROOT}/bin:${PATH}";;
+  esac
+fi
 export PATH
 
 # aliases
@@ -68,7 +76,9 @@ alias sqlite3='sqlite3 -init "${XDG_CONFIG_HOME}/sqlite3/sqliterc"'
 alias wget='wget --hsts-file="${XDG_STATE_HOME}/wget-hsts"'
 alias lzg='lazygit'
 
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# load version managers
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 
+command -v pyenv >/dev/null && eval "$(pyenv init -)"
 
 # define EDITOR in decreasing order of preference
 if command -v lvim >/dev/null; then
