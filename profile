@@ -13,6 +13,7 @@ export GOPATH="${XDG_DATA_HOME}/go"
 export PYTHONUSERBASE="${XDG_DATA_HOME}/python"
 export PYENV_ROOT="${XDG_DATA_HOME}/pyenv"
 export GEM_HOME="${XDG_DATA_HOME}/gem"
+export RBENV_ROOT="${XDG_DATA_HOME}/rbenv"
 
 export XDG_CACHE_HOME="${HOME}/.cache"
 export ICEAUTHORITY="${XDG_CACHE_HOME}/ICEauthority"
@@ -74,6 +75,13 @@ if [ -d "${GEM_HOME}/bin" ]; then
     *) PATH="${GEM_HOME}/bin:${PATH}";;
   esac
 fi
+
+if [ -d "${RBENV_ROOT}/bin" ]; then
+  case ":${PATH}:" in
+    *:${RBENV_ROOT}/bin:*) ;;
+    *) PATH="${RBENV_ROOT}/bin:${PATH}";;
+  esac
+fi
 export PATH
 
 # aliases
@@ -87,6 +95,7 @@ alias lzg='lazygit'
 # load version managers
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 
 command -v pyenv >/dev/null && eval "$(pyenv init -)"
+command -v rbenv >/dev/null && eval "$(rbenv init - $0)"
 
 # define EDITOR in decreasing order of preference
 if command -v lvim >/dev/null; then
