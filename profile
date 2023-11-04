@@ -12,6 +12,7 @@ export GRADLE_USER_HOME="${XDG_DATA_HOME}/gradle"
 export GOPATH="${XDG_DATA_HOME}/go"
 export PYTHONUSERBASE="${XDG_DATA_HOME}/python"
 export PYENV_ROOT="${XDG_DATA_HOME}/pyenv"
+export GEM_HOME="${XDG_DATA_HOME}/gem"
 
 export XDG_CACHE_HOME="${HOME}/.cache"
 export ICEAUTHORITY="${XDG_CACHE_HOME}/ICEauthority"
@@ -62,8 +63,15 @@ fi
 
 if [ -d "${PYENV_ROOT}/bin" ]; then
   case ":${PATH}:" in
-    *:${PYENV_ROOT/bin}:*) ;;
+    *:${PYENV_ROOT}/bin:*) ;;
     *) PATH="${PYENV_ROOT}/bin:${PATH}";;
+  esac
+fi
+
+if [ -d "${GEM_HOME}/bin" ]; then
+  case ":${PATH}:" in
+    *:${GEM_HOME}/bin:*) ;;
+    *) PATH="${GEM_HOME}/bin:${PATH}";;
   esac
 fi
 export PATH
