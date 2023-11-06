@@ -97,15 +97,16 @@ alias lzg='lazygit'
 command -v pyenv >/dev/null && eval "$(pyenv init -)"
 command -v rbenv >/dev/null && eval "$(rbenv init - $0)"
 
-# define EDITOR in decreasing order of preference
+# define EDITOR (and sometimes MANPAGER) in decreasing order of preference
 if command -v lvim >/dev/null; then
-  EDITOR="lvim"
+  export EDITOR="lvim"
+  export MANPAGER="lvim +Man!"
 elif command -v nvim >/dev/null; then
-  EDITOR="nvim"
+  export EDITOR="nvim"
+  export MANPAGER="nvim +Man!"
 elif command -v vim >/dev/null; then
-  EDITOR="vim"
+  export EDITOR="vim"
 else
-  EDITOR="vi"
+  export EDITOR="vi"
 fi
-export EDITOR
 
