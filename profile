@@ -39,6 +39,7 @@ export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
 export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
 export NVM_DIR="${XDG_CONFIG_HOME}/nvm"
 export WGETRC="${XDG_CONFIG_HOME}/wgetrc"
+export MPLAYER_HOME="${XDG_CONFIG_HOME}/mplayer"
 
 export GHCUP_USE_XDG_DIRS=true
 
