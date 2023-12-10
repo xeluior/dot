@@ -95,6 +95,12 @@ alias wget='wget --hsts-file="${XDG_STATE_HOME}/wget-hsts"'
 alias lzg='lazygit'
 command -v wezterm >/dev/null && alias ssh='wezterm ssh'
 
+# less setup
+export LESS="--mouse --wheel-lines=3"
+if command -v lesspipe.sh >/dev/null; then
+  export LESSOPEN="|lesspipe.sh %s"
+fi
+
 # load version managers
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 
 command -v pyenv >/dev/null && eval "$(pyenv init -)"
