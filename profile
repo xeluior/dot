@@ -15,6 +15,7 @@ export PYENV_ROOT="${XDG_DATA_HOME}/pyenv"
 export GEM_HOME="${XDG_DATA_HOME}/gem"
 export RBENV_ROOT="${XDG_DATA_HOME}/rbenv"
 export OPAMROOT="${XDG_DATA_HOME}/opam"
+export TERMINFO="${XDG_DATA_HOME}/terminfo"
 
 export XDG_CACHE_HOME="${HOME}/.cache"
 export ICEAUTHORITY="${XDG_CACHE_HOME}/ICEauthority"
@@ -92,6 +93,7 @@ alias irssi='irssi --config="${XDG_CONFIG_HOME}/irssi/config" --home="${XDG_DATA
 alias sqlite3='sqlite3 -init "${XDG_CONFIG_HOME}/sqlite3/sqliterc"'
 alias wget='wget --hsts-file="${XDG_STATE_HOME}/wget-hsts"'
 alias lzg='lazygit'
+command -v wezterm >/dev/null && alias ssh='wezterm ssh'
 
 # load version managers
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 
