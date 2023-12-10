@@ -14,6 +14,7 @@ export PYTHONUSERBASE="${XDG_DATA_HOME}/python"
 export PYENV_ROOT="${XDG_DATA_HOME}/pyenv"
 export GEM_HOME="${XDG_DATA_HOME}/gem"
 export RBENV_ROOT="${XDG_DATA_HOME}/rbenv"
+export OPAMROOT="${XDG_DATA_HOME}/opam"
 
 export XDG_CACHE_HOME="${HOME}/.cache"
 export ICEAUTHORITY="${XDG_CACHE_HOME}/ICEauthority"
