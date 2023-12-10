@@ -93,7 +93,11 @@ alias irssi='irssi --config="${XDG_CONFIG_HOME}/irssi/config" --home="${XDG_DATA
 alias sqlite3='sqlite3 -init "${XDG_CONFIG_HOME}/sqlite3/sqliterc"'
 alias wget='wget --hsts-file="${XDG_STATE_HOME}/wget-hsts"'
 alias lzg='lazygit'
-command -v wezterm >/dev/null && alias ssh='wezterm ssh'
+alias nvidia-settings='nvidia-settings --config="${XDG_CONFIG_HOME}/nvidia/settings"'
+if [ "${TERM}" = "wezterm" ]; then
+  alias ssh='wezterm ssh'
+  alias imgcat='wezterm imgcat'
+fi
 
 # less setup
 export LESS="--mouse --wheel-lines=3"
