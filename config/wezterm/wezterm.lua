@@ -16,6 +16,7 @@ config.hide_tab_bar_if_only_one_tab = true
 config.pane_focus_follows_mouse = true
 config.use_fancy_tab_bar = false
 config.term = 'wezterm'
+config.audible_bell = 'Disabled'
 config.colors = {
   tab_bar = {
     background = colors.background,
