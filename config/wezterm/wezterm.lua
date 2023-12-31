@@ -8,6 +8,14 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
+local terminfo_file = io.open('/usr/share/terminfo/w/wezterm', 'r')
+if terminfo_file ~= nil then
+  io.close(terminfo_file)
+  config.term = 'wezterm'
+else
+  config.term = 'xterm-256color'
+end
+
 config.font = wezterm.font {
   family = 'IosevkaTermNerdFontMono',
   harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' } 
@@ -18,7 +26,6 @@ config.window_background_opacity = 0.9
 config.hide_tab_bar_if_only_one_tab = true
 config.pane_focus_follows_mouse = true
 config.use_fancy_tab_bar = false
-config.term = 'wezterm'
 config.audible_bell = 'Disabled'
 config.colors = {
   tab_bar = {
