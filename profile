@@ -3,6 +3,9 @@ export QT_STYLE_OVERRIDE=kvantum
 # for i3 compatibility
 export TERMINAL="alacritty"
 
+# set display for GNU coreutils
+export BLOCKSIZE="human-readable"
+
 # oh man all these vars for xdg compatibility
 export XDG_DATA_HOME="${HOME}/.local/share"
 export GNUPGHOME="${XDG_DATA_HOME}/gnupg"
@@ -97,18 +100,28 @@ fi
 export PATH
 
 # aliases
-alias ls='ls -lhAF --color=auto'
-alias mkdir='mkdir -p'
-alias cp='cp -iv'
-alias mv='mv -iv'
-alias rm='rm -dv'
-alias irssi='irssi --config="${XDG_CONFIG_HOME}/irssi/config" --home="${XDG_DATA_HOME}/irssi"'
-alias sqlite3='sqlite3 -init "${XDG_CONFIG_HOME}/sqlite3/sqliterc"'
-alias wget='wget --hsts-file="${XDG_STATE_HOME}/wget-hsts"'
-alias lzg='lazygit'
-alias nvidia-settings='nvidia-settings --config="${XDG_CONFIG_HOME}/nvidia/settings"'
+alias \
+  ls='ls -AlFtr --color=auto --group-directories-first' \
+  dd='dd status=progress' \
+  mkdir='mkdir -pv' \
+  cp='cp -iv' \
+  mv='mv -iv' \
+  rm='rm -Idvr' \
+  ln='ln -iv' \
+  du='du -chs' \
+  echo='echo -e' \
+  irssi='irssi --config="${XDG_CONFIG_HOME}/irssi/config" --home="${XDG_DATA_HOME}/irssi"' \
+  sqlite3='sqlite3 -init "${XDG_CONFIG_HOME}/sqlite3/sqliterc"' \
+  wget='wget --hsts-file="${XDG_STATE_HOME}/wget-hsts"' \
+  lzg='lazygit' \
+  nvidia-settings='nvidia-settings --config="${XDG_CONFIG_HOME}/nvidia/settings"'
+
+# specifially ensure that wget-hsts exists since it will fail otherwise
+if [ -f "${XDG_STATE_HOME}/wget-hsts" ]; then
+  touch "${XDG_STATE_HOME}/wget-hsts"
+fi
+
 if [ "${TERM}" = "wezterm" ]; then
-  alias ssh='wezterm ssh'
   alias imgcat='wezterm imgcat'
 fi
 
