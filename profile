@@ -16,6 +16,7 @@ export GEM_HOME="${XDG_DATA_HOME}/gem"
 export RBENV_ROOT="${XDG_DATA_HOME}/rbenv"
 export OPAMROOT="${XDG_DATA_HOME}/opam"
 export TERMINFO="${XDG_DATA_HOME}/terminfo"
+export AWS_DATA_PATH="${XDG_DATA_HOME}/aws"
 
 export XDG_CACHE_HOME="${HOME}/.cache"
 export ICEAUTHORITY="${XDG_CACHE_HOME}/ICEauthority"
@@ -40,10 +41,13 @@ export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
 export NVM_DIR="${XDG_CONFIG_HOME}/nvm"
 export WGETRC="${XDG_CONFIG_HOME}/wgetrc"
 export MPLAYER_HOME="${XDG_CONFIG_HOME}/mplayer"
+export AWS_CONFIG_FILE="${XDG_CONFIG_HOME}/aws/config"
+export AWS_SHARED_CREDENTIALS_FILE="${XDG_CONFIG_HOME}/aws/credentials"
 
 export GHCUP_USE_XDG_DIRS=true
 
 # ensure PATH has all extensions
+# rustup
 if [ -d "${CARGO_HOME}/bin" ]; then
   case ":${PATH}:" in
     *:${CARGO_HOME}/bin:*) ;;
@@ -51,6 +55,7 @@ if [ -d "${CARGO_HOME}/bin" ]; then
   esac
 fi
 
+# go
 if [ -d "${GOPATH}/bin" ]; then
   case ":${PATH}:" in
     *:${GOPATH}/bin:*) ;;
@@ -58,13 +63,7 @@ if [ -d "${GOPATH}/bin" ]; then
   esac
 fi
 
-if [ -d "${HOME}/.local/bin" ]; then
-  case ":${PATH}:" in
-    *:${HOME}/.local/bin:*) ;;
-    *) PATH="${HOME}/.local/bin:${PATH}";;
-  esac
-fi
-
+# pyenv
 if [ -d "${PYENV_ROOT}/bin" ]; then
   case ":${PATH}:" in
     *:${PYENV_ROOT}/bin:*) ;;
@@ -72,6 +71,15 @@ if [ -d "${PYENV_ROOT}/bin" ]; then
   esac
 fi
 
+# rbenv
+if [ -d "${RBENV_ROOT}/bin" ]; then
+  case ":${PATH}:" in
+    *:${RBENV_ROOT}/bin:*) ;;
+    *) PATH="${RBENV_ROOT}/bin:${PATH}";;
+  esac
+fi
+
+# ruby gems
 if [ -d "${GEM_HOME}/bin" ]; then
   case ":${PATH}:" in
     *:${GEM_HOME}/bin:*) ;;
@@ -79,10 +87,11 @@ if [ -d "${GEM_HOME}/bin" ]; then
   esac
 fi
 
-if [ -d "${RBENV_ROOT}/bin" ]; then
+# misc + pipx
+if [ -d "${HOME}/.local/bin" ]; then
   case ":${PATH}:" in
-    *:${RBENV_ROOT}/bin:*) ;;
-    *) PATH="${RBENV_ROOT}/bin:${PATH}";;
+    *:${HOME}/.local/bin:*) ;;
+    *) PATH="${HOME}/.local/bin:${PATH}";;
   esac
 fi
 export PATH
@@ -90,6 +99,9 @@ export PATH
 # aliases
 alias ls='ls -lhAF --color=auto'
 alias mkdir='mkdir -p'
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias rm='rm -dv'
 alias irssi='irssi --config="${XDG_CONFIG_HOME}/irssi/config" --home="${XDG_DATA_HOME}/irssi"'
 alias sqlite3='sqlite3 -init "${XDG_CONFIG_HOME}/sqlite3/sqliterc"'
 alias wget='wget --hsts-file="${XDG_STATE_HOME}/wget-hsts"'
