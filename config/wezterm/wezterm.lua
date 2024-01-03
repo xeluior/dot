@@ -18,7 +18,7 @@ end
 
 config.font = wezterm.font {
   family = 'IosevkaTermNerdFontMono',
-  harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' } 
+  harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 }
 config.default_prog = {'/usr/bin/bash'}
 config.color_scheme = color_scheme

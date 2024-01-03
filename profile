@@ -46,6 +46,7 @@ export WGETRC="${XDG_CONFIG_HOME}/wgetrc"
 export MPLAYER_HOME="${XDG_CONFIG_HOME}/mplayer"
 export AWS_CONFIG_FILE="${XDG_CONFIG_HOME}/aws/config"
 export AWS_SHARED_CREDENTIALS_FILE="${XDG_CONFIG_HOME}/aws/credentials"
+export INPUTRC="${XDG_CONFIG_HOME}/inputrc"
 
 export GHCUP_USE_XDG_DIRS=true
 
@@ -101,7 +102,7 @@ export PATH
 
 # aliases
 alias \
-  ls='ls -AlFtr --color=auto --group-directories-first' \
+  ls='ls -AFhlrt --color=auto --group-directories-first' \
   dd='dd status=progress' \
   mkdir='mkdir -pv' \
   cp='cp -iv' \
@@ -126,7 +127,7 @@ if [ "${TERM}" = "wezterm" ]; then
 fi
 
 # less setup
-export LESS="--mouse --wheel-lines=3"
+export LESS="--RAW-CONTROL-CHARS --mouse --wheel-lines=3"
 if command -v lesspipe.sh >/dev/null; then
   export LESSOPEN="|lesspipe.sh %s"
 fi
@@ -134,7 +135,7 @@ fi
 # load version managers
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 
 command -v pyenv >/dev/null && eval "$(pyenv init -)"
-command -v rbenv >/dev/null && eval "$(rbenv init - $0)"
+command -v rbenv >/dev/null && eval "$(rbenv init -)"
 
 # define EDITOR in decreasing order of preference
 if command -v lvim >/dev/null; then
