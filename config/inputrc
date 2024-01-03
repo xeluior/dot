@@ -1,3 +1,4 @@
 set menu-complete-display-prefix on
+set show-all-if-ambiguous on
 "\t": menu-complete
 "\e[Z": menu-complete-backward
