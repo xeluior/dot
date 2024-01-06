@@ -98,6 +98,20 @@ if [ -d "${HOME}/.local/bin" ]; then
     *) PATH="${HOME}/.local/bin:${PATH}";;
   esac
 fi
+
+# some distros dont have these by default
+if [ -d "/sbin" ]; then
+  case ":${PATH}:" in
+    *:/sbin:*) ;;
+    *) PATH="${PATH}:/sbin";;
+  esac
+fi
+if [ -d "/usr/sbin" ]; then
+  case ":${PATH}:" in
+    *:/usr/sbin:*) ;;
+    *) PATH="${PATH}:/usr/sbin";;
+  esac
+fi
 export PATH
 
 # aliases
