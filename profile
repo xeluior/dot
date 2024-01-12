@@ -6,6 +6,12 @@ export TERMINAL="alacritty"
 # set display for GNU coreutils
 export BLOCKSIZE="human-readable"
 
+# bash options don't hurt in POSIX (HISTFILE is set in the XDG section)
+export GLOBIGNORE=".:.."
+export HISTCONTROL="erasedups"
+export HISTSIZE="65536"
+export HISTFILESIZE="$HISTSIZE"
+
 # oh man all these vars for xdg compatibility
 export XDG_DATA_HOME="${HOME}/.local/share"
 export GNUPGHOME="${XDG_DATA_HOME}/gnupg"

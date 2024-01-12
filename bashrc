@@ -1,10 +1,18 @@
+shopt -s \
+  autocd \
+  globstar \
+  dotglob \
+  histappend \
+  histverify \
+  no_empty_cmd_completion
+
 # source some shit, check those files
 if [ -f /etc/bashrc ]; then
   . /etc/bashrc
 fi
 
 if [ -f "${HOME}/.profile" ]; then
-  . "$HOME/.profile"
+  . "${HOME}/.profile"
 fi
 
 # custom completions
