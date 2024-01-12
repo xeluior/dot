@@ -1,5 +1,6 @@
 set show-all-if-ambiguous on
 set completion-ignore-case on
 set completion-map-case on
+set expand-tilde on
 "\t": menu-complete
 "\e[Z": menu-complete-backward

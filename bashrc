@@ -1,7 +1,8 @@
 shopt -s \
   autocd \
-  globstar \
   dotglob \
+  direxpand \
+  globstar \
   histappend \
   histverify \
   no_empty_cmd_completion
