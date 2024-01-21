@@ -135,7 +135,8 @@ alias \
   sqlite3='sqlite3 -init "${XDG_CONFIG_HOME}/sqlite3/sqliterc"' \
   wget='wget --hsts-file="${XDG_STATE_HOME}/wget-hsts"' \
   lzg='lazygit' \
-  nvidia-settings='nvidia-settings --config="${XDG_CONFIG_HOME}/nvidia/settings"'
+  nvidia-settings='nvidia-settings --config="${XDG_CONFIG_HOME}/nvidia/settings"' \
+  :q='exit'
 
 # specifially ensure that wget-hsts exists since it will fail otherwise
 if [ -f "${XDG_STATE_HOME}/wget-hsts" ]; then
