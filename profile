@@ -8,9 +8,9 @@ export BLOCKSIZE="human-readable"
 
 # bash options don't hurt in POSIX (HISTFILE is set in the XDG section)
 export GLOBIGNORE=".:.."
-export HISTCONTROL="erasedups"
-export HISTSIZE="65536"
-export HISTFILESIZE="$HISTSIZE"
+export HISTCONTROL="ignoreboth:erasedups"
+export HISTFILESIZE=
+export HISTSIZE=
 
 # oh man all these vars for xdg compatibility
 export XDG_DATA_HOME="${HOME}/.local/share"
@@ -160,11 +160,9 @@ command -v rbenv >/dev/null && eval "$(rbenv init -)"
 # define EDITOR in decreasing order of preference
 if command -v lvim >/dev/null; then
   export EDITOR="lvim"
-  export MANPAGER="lvim +Man!"
   export SUDO_EDITOR="nvim"
 elif command -v nvim >/dev/null; then
   export EDITOR="nvim"
-  export MANPAGER="nvim +Man!"
 elif command -v vim >/dev/null; then
   export EDITOR="vim"
 else
