@@ -1,5 +1,5 @@
 local wezterm = require 'wezterm'
-local color_scheme = 'Aci (Gogh)'
+local color_scheme = 'Tokyo Night'
 local colors = wezterm.color.get_builtin_schemes()[color_scheme]
 local ground_colors = { bg_color = colors.background, fg_color = colors.foreground }
 local config = {}
