@@ -31,3 +31,18 @@ fi
 if command -v starship >/dev/null; then
   eval "$(starship init bash)"
 fi
+
+# Setup fzf
+# yoinked from .fzf.bash created by https://github.com/junegunn/fzf/blob/master/install
+# ---------
+if [[ ! "$PATH" == */home/developer/.local/share/fzf/bin* ]]; then
+  PATH="${PATH:+${PATH}:}/home/developer/.local/share/fzf/bin"
+fi
+
+# Auto-completion
+# ---------------
+source "/home/developer/.local/share/fzf/shell/completion.bash"
+
+# Key bindings
+# ------------
+source "/home/developer/.local/share/fzf/shell/key-bindings.bash"
