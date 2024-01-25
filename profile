@@ -1,7 +1,7 @@
 export QT_STYLE_OVERRIDE=kvantum
 
 # for i3 compatibility
-export TERMINAL="alacritty"
+export TERMINAL="wezterm"
 
 # set display for GNU coreutils
 export BLOCKSIZE="human-readable"
