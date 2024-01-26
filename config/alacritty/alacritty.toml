@@ -1,3 +1,7 @@
+import = [
+  "~/.config/alacritty/themes/themes/tokyo-night.toml"
+]
+
 [shell]
 program = "tmux"
 args = ["new-session", "-As0"] # always attach to session 0, creating if it doesn't exist
