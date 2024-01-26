@@ -35,14 +35,14 @@ fi
 # Setup fzf
 # yoinked from .fzf.bash created by https://github.com/junegunn/fzf/blob/master/install
 # ---------
-if [[ ! "$PATH" == */home/developer/.local/share/fzf/bin* ]]; then
-  PATH="${PATH:+${PATH}:}/home/developer/.local/share/fzf/bin"
+if [[ ! "$PATH" == *${XDG_DATA_HOME}/fzf/bin* ]]; then
+  PATH="${PATH:+${PATH}:}${XDG_DATA_HOME}/fzf/bin"
 fi
 
 # Auto-completion
 # ---------------
-source "/home/developer/.local/share/fzf/shell/completion.bash"
+source "${XDG_DATA_HOME}/fzf/shell/completion.bash"
 
 # Key bindings
 # ------------
-source "/home/developer/.local/share/fzf/shell/key-bindings.bash"
+source "${XDG_DATA_HOME}/fzf/shell/key-bindings.bash"
