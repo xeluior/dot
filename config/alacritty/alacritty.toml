@@ -1,0 +1,14 @@
+[shell]
+program = "tmux"
+args = ["new-session", "-As0"] # always attach to session 0, creating if it doesn't exist
+
+[window]
+opacity = 0.95
+dynamic_title = true
+
+[font]
+normal = { family = "IosevkaTermNerdFontMono", style = "regular" }
+
+[mouse]
+hide_when_typing = true
+
