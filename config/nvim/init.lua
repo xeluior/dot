@@ -280,6 +280,10 @@ vim.o.confirm = true
 
 vim.o.relativenumber = true
 
+-- highlight where to cursor is at
+vim.o.cursorline = true
+vim.o.cursorlineopt = "screenline,number"
+
 -- [[ Basic Keymaps ]]
 
 -- Keymaps for better default experience
