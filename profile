@@ -97,6 +97,14 @@ if [ -d "${GEM_HOME}/bin" ]; then
   esac
 fi
 
+# scala
+if [ -d "${XDG_DATA_HOME}/coursier/bin" ]; then
+  case ":${PATH}:" in
+    *:${XDG_DATA_HOME}/coursier/bin:*) ;;
+    *) PATH="${XDG_DATA_HOME}/coursier/bin:${PATH}";;
+  esac
+fi
+
 # misc + pipx
 if [ -d "${HOME}/.local/bin" ]; then
   case ":${PATH}:" in
@@ -136,7 +144,8 @@ alias \
   wget='wget --hsts-file="${XDG_STATE_HOME}/wget-hsts"' \
   lzg='lazygit' \
   nvidia-settings='nvidia-settings --config="${XDG_CONFIG_HOME}/nvidia/settings"' \
-  :q='exit'
+  :q='exit' \
+  sbt='sbt -ivy "${XDG_DATA_HOME}/ivy2" -sbt-dir "${XDG_DATA_HOME}/sbt"'
 
 # specifially ensure that wget-hsts exists since it will fail otherwise
 if [ -f "${XDG_STATE_HOME}/wget-hsts" ]; then
