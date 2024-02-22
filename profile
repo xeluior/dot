@@ -1,3 +1,5 @@
+# vi: ft=sh
+
 export QT_STYLE_OVERRIDE=kvantum
 
 # for i3 compatibility
