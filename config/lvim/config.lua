@@ -9,3 +9,4 @@ lvim.builtin.terminal.direction = 'horizontal'
 lvim.builtin.terminal.size = function(_)
   return vim.o.lines * 0.35
 end
+lvim.builtin.which_key.mappings["e"] = { "<cmd>NvimTreeFocus<CR>", "Explorer" }
