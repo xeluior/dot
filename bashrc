@@ -8,10 +8,6 @@ shopt -s \
   no_empty_cmd_completion
 
 # source some shit, check those files
-if [ -f /etc/bashrc ]; then
-  . /etc/bashrc
-fi
-
 if [ -f "${HOME}/.profile" ]; then
   . "${HOME}/.profile"
 fi
@@ -46,3 +42,8 @@ source "${XDG_DATA_HOME}/fzf/shell/completion.bash"
 # Key bindings
 # ------------
 source "${XDG_DATA_HOME}/fzf/shell/key-bindings.bash"
+
+# local bashrc
+if [ -r "${XDG_CONFIG_HOME}/bash/rc" ]; then
+  source "${XDG_CONFIG_HOME}/bash/rc"
+fi
