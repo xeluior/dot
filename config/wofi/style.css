@@ -1,0 +1,41 @@
+/* TODO: use wofi colors */
+@import "/home/robert/.config/waybar/tokyonight-night.css";
+
+* {
+  font-family: "IosevkaTermNerdFont";
+}
+
+#window,
+#entry {
+  background: transparent;
+}
+
+#selected {
+  background-color: @bg_highlight;
+}
+
+#input {
+  margin-bottom: 6px;
+}
+
+#inner-box {
+  padding: 4px;
+}
+
+list {
+  background-color: alpha(@bg_dark, 0.95);
+}
+
+#inner-box,
+#input {
+  background: alpha(@bg, 0.95);
+  border-radius: 12px;
+  border-color: @dark3;
+  border-style: solid;
+  border-width: 1px;
+}
+
+#input:focus {
+  border-color: @cyan;
+}
+
