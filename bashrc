@@ -37,11 +37,15 @@ fi
 
 # Auto-completion
 # ---------------
-source "${XDG_DATA_HOME}/fzf/shell/completion.bash"
+if [ -r "${XDG_DATA_HOME}/fzf/shell/completion.bash" ]; then
+  source "${XDG_DATA_HOME}/fzf/shell/completion.bash"
+fi
 
 # Key bindings
 # ------------
-source "${XDG_DATA_HOME}/fzf/shell/key-bindings.bash"
+if [ -r "${XDG_DATA_HOME}/fzf/shell/key-bindings.bash" ]; then
+  source "${XDG_DATA_HOME}/fzf/shell/key-bindings.bash"
+fi
 
 # local bashrc
 if [ -r "${XDG_CONFIG_HOME}/bash/rc" ]; then
