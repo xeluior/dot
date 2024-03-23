@@ -1,0 +1,65 @@
+// -*- mode: jsonc -*-
+{
+  "layer": "top", // Waybar at top layer
+  // "position": "bottom", // Waybar position (top|bottom|left|right)
+  "height": 24, // Waybar height (to be removed for auto height)
+  // "width": 1280, // Waybar width
+  "margin-left": 10,
+  "margin-right": 10,
+  "margin-top": 10,
+  "spacing": 4, // Gaps between modules (4px)
+  "reload_style_on_change": true,
+  // Choose the order of the modules
+  "modules-left": [
+    "hyprland/workspaces"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "tray",
+    "pulseaudio",
+    "backlight",
+    "battery"
+  ],
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "active": "●",
+      "default": "•",
+      "empty": "●",
+      "persistent": "•",
+      "special": "◼",
+      "urgent": "!"
+    }
+  },
+  "battery": {
+    "format": "{icon}",
+    "format-icons": [
+      "󰂃", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂"
+    ],
+    "tooltip-format": "{capacity}%"
+  },
+  "backlight": {
+    "format": "{icon}",
+    "tooltip-format": "{percent}%",
+    "format-icons": [
+      "󰌶", "󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩔", "󱩕", "󱩖", "󰛨"
+    ],
+    "on-scroll-up": "light -A 1%",
+    "on-scroll-down": "light -U 1%"
+  },
+  "pulseaudio": {
+    "format": "{icon}",
+    "format-muted": "󰝟",
+    "format-icons": {
+      "default": [ "󰸈", "󰕿", "󰖀", "󰕾" ]
+    },
+    "tooltip-format": "{volume}%",
+    "on-click": "pavucontrol"
+  },
+  "clock": {
+    "timezone": "America/Indiana/Indianapolis",
+    "format": "{:%F %R}"
+  }
+}

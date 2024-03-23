@@ -1,0 +1,36 @@
+@import "./tokyonight-night.css";
+
+* {
+  border: none;
+  font-family: IosevkaTermNerdFont;
+  font-size: 12pt;
+  border-radius: 12px;
+  background: transparent;
+  color: @fg;
+  padding: 0px;
+}
+
+window#waybar {
+  background: alpha(@bg, 0.95);
+}
+
+tooltip {
+  background: @bg;
+}
+
+#tray menu {
+  background: @bg;
+}
+
+label.module {
+  padding: 6px;
+}
+
+.modules-right {
+  margin-right: 12px;
+}
+
+.modules-left {
+  margin-left: 12px;
+}
+
