@@ -41,6 +41,35 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   {
+    'catppuccin/nvim',
+    name = 'catppuccin',
+    opts = {
+      flavour = 'mocha',
+      transparent_backround = true,
+      dim_inactive = {
+        enabled = true,
+        shade = 'dark',
+        percentage = 0.5
+      },
+      integrations = {
+        cmp = true,
+        mason = true,
+        treesitter = true
+      }
+    }
+  },
+
+  {
+    'xiyaowong/transparent.nvim',
+    opts = {
+      exclude_groups = {
+        'CursorLine',
+        'StatusLine'
+      }
+    }
+  },
+
+  {
     'windwp/nvim-autopairs',
     event = "InsertEnter",
     config = true
@@ -68,9 +97,6 @@ require("lazy").setup({
   {
     'williamboman/mason-lspconfig.nvim',
     config = function()
-      require('mason').setup {}
-      require('mason-lspconfig').setup {}
-
       local config = require 'mason-lspconfig'
       config.setup_handlers {
         function (server_name)
@@ -86,3 +112,4 @@ require("lazy").setup({
 
 }, {})
 
+vim.cmd.colorscheme 'catppuccin'
