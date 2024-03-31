@@ -26,6 +26,8 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.termguicolors = os.getenv("COLORTERM") == "truecolor"
 
+vim.g.loaded_perl_provider = 0
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   vim.fn.system({
