@@ -83,10 +83,13 @@ require("lazy").setup({
     config = function()
       local configs = require 'nvim-treesitter.configs'
       configs.setup {
+        auto_install = true,
         ensure_installed = { 'c', 'lua', 'vim', 'vimdoc', 'python' },
-        sync_installed = false,
+        sync_install = false,
+        ignore_install = {},
         highlight = { enable = true },
-        indent = { enable = true }
+        indent = { enable = true },
+        modules = {}
       }
     end
   },
@@ -98,8 +101,9 @@ require("lazy").setup({
 
   {
     'williamboman/mason-lspconfig.nvim',
-    config = function()
+    config = function(_, opts)
       local config = require 'mason-lspconfig'
+      config.setup(opts)
       config.setup_handlers {
         function (server_name)
           require('lspconfig')[server_name].setup {}
@@ -110,8 +114,33 @@ require("lazy").setup({
       'williamboman/mason.nvim',
       'neovim/nvim-lspconfig'
     }
-  }
+  },
 
+  {
+    'folke/neodev.nvim',
+    config = true
+  },
+
+  {
+    'nvim-telescope/telescope.nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        build = 'make'
+      }
+    },
+    config = function(_, opts)
+      local telescope = require 'telescope'
+      telescope.setup(opts)
+      telescope.load_extension('fzf')
+    end
+  }
 }, {})
 
 vim.cmd.colorscheme 'catppuccin'
+
+-- TODO: LSP keybinds and completion
+-- TODO: highlight region breifly on yank
+-- TODO: gitsigns
+-- TODO: modularize
