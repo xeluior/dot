@@ -12,7 +12,7 @@ function main() {
   setup "${PWD}/bashrc" "${HOME}/.bashrc"
   setup "${PWD}/bash_profile" "${HOME}/.bash_profile"
   for f in "${PWD}/config/"*; do
-    setup "$f" "${HOME}/.config"
+    setup "$f" "${XDG_CONFIG_HOME:-"${HOME}/.config"}"
   done
 }
 
