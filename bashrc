@@ -16,6 +16,15 @@ shopt -s \
 # setup prompt
 if command -v starship >/dev/null; then
   eval "$(starship init bash)"
+
+  # wrap starship functions for Konsole integration
+  PS2='\[\e]133;A\a\]'"$(starship prompt --continuation)"'\[\e]133;B\a\]'
+  PS0=${PS0}'\[\e]133;C\a\]'
+  starship_wrapper () {
+    starship_precmd
+    PS1='\[\e]133;L\a\]\[\e]133;A\a\]'$PS1'\[\e]133;B\a\]'
+  }
+  PROMPT_COMMAND='starship_wrapper'
 fi
 
 # Setup fzf
