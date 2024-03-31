@@ -1,0 +1,7 @@
+[user]
+	name = Robert Gingras
+	email = developer@three-point-five.dev
+[init]
+	defaultBranch = main
+[push]
+	autoSetupRemote = true
