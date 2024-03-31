@@ -1,7 +1,12 @@
 [user]
 	name = Robert Gingras
 	email = developer@three-point-five.dev
+	signingKey = ~/.ssh/id_rsa.pub
 [init]
 	defaultBranch = main
 [push]
 	autoSetupRemote = true
+[gpg]
+	format = ssh
+[commit]
+	gpgSign = true
