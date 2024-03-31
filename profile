@@ -1,6 +1,11 @@
 # vi: ft=sh
 
-export QT_STYLE_OVERRIDE=kvantum
+# vendored run commands
+for i in /etc/profile.d/*.sh; do
+  if [ -r "$i" ]; then
+    . "$i"
+  fi
+done
 
 # for i3 compatibility
 export TERMINAL="alacritty"

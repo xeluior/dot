@@ -8,20 +8,10 @@ shopt -s \
   no_empty_cmd_completion
 
 # source some shit, check those files
-if [ -f "${HOME}/.profile" ]; then
-  . "${HOME}/.profile"
-fi
+[ -f "${HOME}/.profile" ] && source "${HOME}/.profile"
 
 # custom completions
-if [ -d "${XDG_DATA_HOME}/bash-completion/completions" ]; then
-  for completion in ${XDG_DATA_HOME}/bash-completion/completions/*; do
-    . "${completion}"
-  done
-fi
-
-if [ -f "${NVM_DIR}/bash_completion" ]; then
-  . "${NVM_DIR}/bash_completion"
-fi
+[ -f "${NVM_DIR}/bash_completion" ] && source "${NVM_DIR}/bash_completion"
 
 # setup prompt
 if command -v starship >/dev/null; then
@@ -43,9 +33,8 @@ fi
 
 # Key bindings
 # ------------
-if [ -r "${XDG_DATA_HOME}/fzf/shell/key-bindings.bash" ]; then
-  source "${XDG_DATA_HOME}/fzf/shell/key-bindings.bash"
-fi
+[ -r "${XDG_DATA_HOME}/fzf/shell/key-bindings.bash" ] && source "${XDG_DATA_HOME}/fzf/shell/key-bindings.bash"
+[ -r "/usr/share/fzf/shell/key-bindings.bash" ] && source "/usr/share/fzf/shell/key-bindings.bash"
 
 # local bashrc
 if [ -r "${XDG_CONFIG_HOME}/bash/rc" ]; then
