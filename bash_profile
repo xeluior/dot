@@ -1,5 +1,5 @@
 # source bashrc
-if [ -f "$HOME/.bashrc" ]; then
-  . "$HOME/.bashrc"
+if [ -f "$HOME/.profile" ]; then
+  . "$HOME/.profile"
 fi
 
