@@ -1,8 +1,4 @@
 # vi: ft=sh
-
-# vendored run commands
-[ -r /etc/profile ] && . /etc/profile
-
 # oh man all these vars for xdg compatibility
 export XDG_DATA_HOME="${HOME}/.local/share"
 export GNUPGHOME="${XDG_DATA_HOME}/gnupg"
@@ -26,8 +22,6 @@ export GOMODCACHE="${XDG_CACHE_HOME}/go/mod"
 export PYTHONPYCACHEPREFIX="${XDG_CACHE_HOME}/python"
 
 export XDG_STATE_HOME="${HOME}/.local/state"
-export HISTFILE="${XDG_STATE_HOME}/bash_history"
-export LESSHISTFILE="${XDG_STATE_HOME}/lesshst"
 export WINEPREFIX="${XDG_STATE_HOME}/wine/default"
 export NODE_REPL_HISTORY="${XDG_STATE_HOME}/node_repl_history"
 export SQLITE_HISTORY="${XDG_CACHE_HOME}/sqlite_history"
@@ -47,3 +41,35 @@ export INPUTRC="${XDG_CONFIG_HOME}/inputrc"
 
 export GHCUP_USE_XDG_DIRS=true
 
+# less setup
+export LESS="--RAW-CONTROL-CHARS --mouse --wheel-lines=3"
+export LESSHISTFILE="$XDG_STATE_HOME/lesshst"
+
+# set EDITOR to one of the vims
+export EDITOR="$(which nvim || which vim || which vi)"
+export VISUAL="$EDITOR"
+
+# history settings
+export GLOBIGNORE=".:.."
+export HISTCONTROL="ignoreboth:erasedups"
+export HISTFILE="$XDG_STATE_HOME/bash/history"
+export HISTFILESIZE='-1'
+export HISTSIZE='-1'
+
+# update path
+pathmunge () {
+  case ":${PATH}:" in
+    *:"$1":*) ;;
+    *)
+      if [ "$2" = "after" ] ; then
+        PATH=$PATH:$1
+      else
+        PATH=$1:$PATH
+      fi
+  esac
+}
+
+pathmunge "${CARGO_HOME}/bin"
+pathmunge "${GOPATH}/bin"
+
+unset -f pathmunge
